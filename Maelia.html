@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lettre &#224; Maelia</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --ink: #1a1208;
+      --gold: #b8973a;
+      --parchment: #f5eedc;
+      --parchment-dark: #e8dcc0;
+      --accent: #7a3b2e;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #2c2416;
+      background-image:
+        radial-gradient(ellipse at 20% 30%, rgba(90,60,20,0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 70%, rgba(60,30,10,0.5) 0%, transparent 60%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .page {
+      background-color: var(--parchment);
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
+      max-width: 760px;
+      width: 100%;
+      padding: 5rem 5.5rem;
+      position: relative;
+      box-shadow:
+        0 0 0 1px var(--parchment-dark),
+        0 0 0 8px #2c2416,
+        0 0 0 9px var(--gold),
+        0 8px 60px rgba(0,0,0,0.7);
+      animation: unfold 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes unfold {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Ornements coins */
+    .page::before, .page::after {
+      content: '&#10087;';
+      position: absolute;
+      font-size: 2.2rem;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+    .page::before { top: 1.4rem; left: 1.8rem; }
+    .page::after  { bottom: 1.4rem; right: 1.8rem; transform: rotate(180deg); }
+
+    .ornament-tr, .ornament-bl {
+      position: absolute;
+      font-size: 2.2rem;
+      color: var(--gold);
+      opacity: 0.5;
+      font-family: 'IM Fell English', serif;
+    }
+    .ornament-tr { top: 1.4rem; right: 1.8rem; }
+    .ornament-bl { bottom: 1.4rem; left: 1.8rem; transform: rotate(180deg); }
+
+    /* Ligne d&#233;corative */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem 0;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .divider-icon { font-size: 1.1rem; }
+
+    /* Titre */
+    .title {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 0.3rem;
+    }
+
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--gold);
+      text-align: center;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+
+    /* Corps */
+    .salutation {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.45rem;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 1.13rem;
+      line-height: 1.95;
+      color: var(--ink);
+      text-align: justify;
+      margin-bottom: 1.4rem;
+      font-weight: 300;
+    }
+
+    p:first-of-type::first-letter {
+      font-family: 'IM Fell English', serif;
+      font-size: 4.2rem;
+      float: left;
+      line-height: 0.78;
+      margin-right: 0.12em;
+      margin-top: 0.08em;
+      color: var(--accent);
+    }
+
+    em {
+      font-style: italic;
+      color: #3a2a10;
+    }
+
+    .signature-block {
+      margin-top: 2.5rem;
+      text-align: right;
+    }
+
+    .signature-label {
+      font-style: italic;
+      font-size: 1rem;
+      color: #7a6a4a;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .signature {
+      font-family: 'IM Fell English', serif;
+      font-size: 1.4rem;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .page { padding: 3rem 2rem; }
+      p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<article class="page">
+  <span class="ornament-tr">&#10087;</span>
+  <span class="ornament-bl">&#10087;</span>
+
+  <p class="title">Adresse solennelle</p>
+  <p class="subtitle">En r&#233;ponse &#224; une situation linguistique fort pr&#233;occupante</p>
+
+  <div class="divider"><span class="divider-icon">&#10022;</span></div>
+
+  <p class="salutation">Tr&#232;s ch&#232;re Maelia,</p>
+
+  <p>
+    Il est des circonstances dans l'existence o&#249; la bienveillance la plus &#233;l&#233;mentaire commande de rompre le silence, non point par d&#233;sir de blesser, mais bien par un souci sinc&#232;re et profond&#233;ment humain de pr&#233;server l'int&#233;grit&#233; de notre belle langue fran&#231;aise, dont la majest&#233;, forg&#233;e au fil des si&#232;cles par d'illustres lettr&#233;s, m&#233;rite que l'on s'y consacre avec tout le s&#233;rieux qu'elle est en droit d'exiger.
+  </p>
+
+  <p>
+    C'est dans cet esprit de correction fraternelle &#8212; et non de condescendance, &#224; Dieu ne plaise &#8212; que je me vois dans l'obligation affectueuse, mais n&#233;anmoins pressante, de vous soumettre la pr&#233;sente missive, dont l'objet, aussi d&#233;licat soit-il, ne saurait &#234;tre davantage diff&#233;r&#233; sans que ma conscience n'en p&#226;tisse consid&#233;rablement.
+  </p>
+
+  <p>
+    En effet, Maelia, il m'a &#233;t&#233; donn&#233; d'observer, &#224; de nombreuses reprises et avec une attention aussi bienveillante que m&#233;ticuleuse, que votre rapport &#224; la langue de Moli&#232;re, de Racine et de Voltaire entretient avec ces glorieux a&#238;n&#233;s une distance que l'on qualifiera, avec toute la diplomatie requise, de <em>substantielle</em>. Vos constructions syntaxiques, aussi spontan&#233;es et authentiques soient-elles dans leur &#233;lan, semblent parfois emprunt&#233;es &#224; un idiome qui nous est encore, pour l'heure, inconnu de tous ; vos accords, ces gardiens silencieux de la coh&#233;rence grammaticale, paraissent livr&#233;s &#224; eux-m&#234;mes, errant sans boussole dans le vaste champ de vos phrases ; et quant &#224; votre ponctuation, il convient de noter, avec toute la d&#233;licatesse que la situation impose, qu'elle semble avoir pris la r&#233;solution ferme de ne point se laisser contraindre par les r&#232;gles qui lui sont pourtant d&#233;volues depuis des lustres.
+  </p>
+
+  <p>
+    Or, vous n'&#234;tes pas sans ignorer &#8212; ou peut-&#234;tre, pr&#233;cis&#233;ment, l'ignorez-vous, ce qui expliquerait bien des choses &#8212; que la langue fran&#231;aise est un &#233;difice d'une pr&#233;cision et d'une &#233;l&#233;gance rares, dont chaque pierre, pos&#233;e avec soin depuis le Moyen &#194;ge jusqu'&#224; nos jours, concourt &#224; former un ensemble d'une coh&#233;rence admirable. Malmener cet &#233;difice, f&#251;t-ce par inadvertance et avec les meilleures intentions du monde, c'est porter atteinte &#224; un patrimoine qui nous d&#233;passe tous, et dont nous ne sommes, en d&#233;finitive, que les modestes et temporaires d&#233;positaires.
+  </p>
+
+  <p>
+    Aussi, et c'est l&#224; l'objet central de cette adresse que vous lisez pr&#233;sentement avec, je l'esp&#232;re, toute l'attention qu'elle m&#233;rite, je vous enjoins &#8212; avec autant de douceur que de fermet&#233;, ces deux vertus n'&#233;tant point incompatibles &#8212; de bien vouloir <em>suspendre momentan&#233;ment vos prises de parole</em>, le temps de vous adonner &#224; un commerce plus assidu avec les grands textes de notre litt&#233;rature nationale. Qu'il s'agisse de Flaubert, dont la prose cisel&#233;e force l'admiration des plus s&#233;v&#232;res critiques, de Proust, dont les phrases semblent ne jamais vouloir s'achever tant elles sont riches de nuances et de profondeur, ou encore de la simple mais &#244; combien salutaire consultation d'un dictionnaire &#8212; de pr&#233;f&#233;rence le Littr&#233;, dont l'autorit&#233; demeure incontest&#233;e &#8212;, les ressources ne manquent pas pour qui se donne la peine de les chercher.
+  </p>
+
+  <p>
+    Je veux croire, ch&#232;re Maelia, que vous accueillerez ces observations non point comme une offense &#8212; ce qu'elles ne sauraient &#234;tre, tant elles proc&#232;dent d'une affection sinc&#232;re &#224; votre &#233;gard &#8212;, mais bien comme le t&#233;moignage d'une estime suffisamment &#233;lev&#233;e pour oser vous dire ce que d'autres, par exc&#232;s de politesse ou de paresse, se contenteraient de taire. Car c'est pr&#233;cis&#233;ment parce que je vous crois capable de mieux que je me permets de vous demander davantage.
+  </p>
+
+  <p>
+    En attendant que vos progr&#232;s &#8212; dont je ne doute pas un seul instant qu'ils seront rapides et &#233;clatants, pour peu que vous consentiez &#224; y travailler avec la constance n&#233;cessaire &#8212; vous autorisent &#224; reprendre votre place dans le concert des locuteurs accomplis, je vous serai infiniment reconnaissant(e) de bien vouloir observer un silence que je qualifierai non pas de punitif, mais de <em>prop&#233;deutique</em> : un silence studieux, fertile, et annonciateur d'une renaissance linguistique que nous serons tous impatients de c&#233;l&#233;brer en temps voulu.
+  </p>
+
+  <div class="divider"><span class="divider-icon">&#10022;</span></div>
+
+  <div class="signature-block">
+    <span class="signature-label">R&#233;dig&#233; avec la plus vive consid&#233;ration,</span>
+    <span class="signature">Un ami sinc&#232;re de la langue fran&#231;aise</span>
+  </div>
+
+</article>
+
+</body>
+</html>
